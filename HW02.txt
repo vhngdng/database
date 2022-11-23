@@ -1,0 +1,66 @@
+USE testing_system;
+-- CREATE TABLE IF NOT EXISTS NHANVIEN(
+-- 	ID INT,
+-- 	NAME VARCHAR(60),
+-- 	Ngay_Bat_Dau DATE,
+-- 	So_Chiec INT
+-- )
+-- INSERT INTO NHANVIEN(ID, NAME, Ngay_Bat_Dau, So_Chiec)
+-- VALUES (1,'Hoang', '2007-01-24', 250),
+-- (2,'Nam', '2007-05-27', 220),
+-- (3,'Viet', '2007-05-06', 170),
+-- (3,'Viet', '2007-04-06', 100),
+-- (4,'Huong', '2007-04-06', 220),
+-- (5,'Xuan', '2007-06-06', 300),
+-- (5,'Xuan', '2007-02-06', 350);
+-- 
+-- 
+
+-- SELECT ID, NAME, Ngay_Bat_Dau FROM NHANVIEN;
+
+
+
+-- bai 2
+-- UPDATE EMPLOYEE
+-- SET @@auto_increment_increment=10,
+-- SHOW VARIABLES;
+-- SET @@auto_increment_increment=10,
+-- set @@auto_increment_offset=12
+
+-- CREATE TABLE if NOT exists EMPLOYEE (
+-- 	EMPLOYEE_ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+-- 	EMPLOYEE_NAME VARCHAR(60),
+-- 	SALARY INT
+-- )
+
+
+-- INSERT INTO EMPLOYEE(EMPLOYEE_NAME, SALARY)
+-- VALUES
+-- ('Finch', 15000),
+-- ('Peter', 25000),
+-- ('Warner', 5600),
+-- ('Watson', 90000)
+
+-- UPDATE EMPLOYEE
+-- SET SALARY = SALARY*2;	
+-- select * from EMPLOYEE;
+
+
+
+
+--bai 3
+-- create table if NOT EXISTS people(
+-- 	first_name VARCHAR(60),
+-- 	last_name VARCHAR(60),
+-- 	birth_day DATE
+-- ) 
+-- 
+-- INSERT INTO people(first_name, last_name, birth_day)
+-- VALUES ('Le Thi', 'Thu', '1996-12-12'),
+-- ('Vu Thi', 'Nga' , '1997-11-17'),
+-- ('Nguyen Van', 'C' , '2000-12-17'),
+-- ('Pham Van', 'D' , '1998-10-11'),
+-- ('Tran Dinh', 'Trong' , '1997-04-25'),
+-- ('Bui', 'Tien Dung' , '1997-02-28');
+
+SELECT *, DATEDIFF(CURDATE(), birth_day) birthday_today FROM people;	
