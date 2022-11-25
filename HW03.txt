@@ -1,0 +1,70 @@
+-- CREATE TABLE if NOT exists nhan_vien(
+-- 	ma_nhan_vien INT PRIMARY KEY AUTO_INCREMENT,
+-- 	ten_nhan_vien VARCHAR(60),
+-- 	chuc_vu VARCHAR(60),
+-- 	score FLOAT,
+-- 	salary float
+-- )
+-- 
+-- CREATE TABLE nha_cung_cap
+-- 	ma_nha_cung_cap INT PRIMARY KEY AUTO_INCREMENT,
+-- 	ten_nha_cung_cap VARCHAR(60),
+-- 	dia_chi VARCHAR(60),
+-- 	phone int
+-- )
+-- 
+-- CREATE TABLE ma_thuoc
+-- 	ma_thuoc INT PRIMARY KEY AUTO_INCREMENT,
+-- 	ten_thuoc VARCHAR(60),
+-- 	don_vi_ti VARCHAR(60),
+-- 	so_luong int
+-- )
+
+-- INSERT INTO nha_cung_cap(ten_nha_cung_cap, dia_chi, phone)
+-- VALUES ('Thanh Nhan', 'Phùng', 098890098),
+-- ('A', 'HCM', 098890098),
+-- ('Á âu', 'Hà Nội', 098834234),
+-- ('Việt Tiệp', 'Hà Tây', 023350098),
+-- ('Thanh Long', 'Ba Vì', 034560098),
+-- ('Bạch Hổ', 'Sóc Trăng', 05674098),
+-- ('Bạch Xà', 'Mĩ Đình', 04565098),
+-- ('hắc ưng', 'Cổ Nhuế', 09452098),
+-- ('Thuỵ', 'Huế', 098893455),
+-- ('Xích Thố', 'Ba Lan', 098893453)
+
+-- INSERT INTO nha_cung_cap(ten_nha_cung_cap, dia_chi, phone)
+-- VALUES ('Thanh Nhan', 'Phùng', 098890098),
+-- ('A', 'HCM', 098890098),
+-- ('Á âu', 'Hà Nội', 098834234),
+-- ('Việt Tiệp', 'Hà Tây', 023350098),
+-- ('Thanh Long', 'Ba Vì', 034560098),
+-- ('Bạch Hổ', 'Sóc Trăng', 05674098),
+-- ('Bạch Xà', 'Mĩ Đình', 04565098),
+-- ('hắc ưng', 'Cổ Nhuế', 09452098),
+-- ('Thuỵ', 'Huế', 098893455),
+-- ('Xích Thố', 'Ba Lan', 098893453)
+
+-- INSERT INTO thuoc(ten_thuoc, don_vi_ti, so_luong)
+-- VALUES ('Thuoc so mui', 'vien', 123),
+-- ('Thuoc da day', 'vi', 231),
+-- ('Thuoc Covid', 'vi', 1000),
+-- ('Thuoc dau rang', 'vi', 1235),
+-- ('Thuoc la', 'viênthuoc', 1098),
+-- ('Thuoc te', 'vi', 198),
+-- ('Thuoc sung', 'Viên', 298),
+-- ('Thuoc thuoc', 'vi', 28),
+-- ('Thuoc A', 'Hộp', 455),
+-- ('Thuoc C', 'Thùng', 453)
+-- 
+-- select * from nha_cung_cap
+-- WHERE dia_chi = 'HN';
+
+-- SELECT COUNT(ma_thuoc), ten_thuoc
+-- FROM thuoc
+-- GROUP BY ten_thuoc;
+-- 
+-- SELECT AVG(score) diem_chuyen_can_trung_binh
+-- FROM nhan_vien
+
+-- SELECT SUM(salary) tong_tien_luong
+-- FROM nhan_vien
