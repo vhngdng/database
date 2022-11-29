@@ -1,0 +1,146 @@
+-- CREATE DATABASE TechmasterSystem;
+
+-- CREATE TABLE Blog(
+-- 	id INT PRIMARY KEY AUTO_INCREMENT,
+-- 	title VARCHAR(50),
+-- 	DESCRIPTION VARCHAR(100),
+-- 	created_at Date
+-- )
+
+-- CREATE TABLE USER(
+-- 	id INT PRIMARY KEY AUTO_INCREMENT,
+-- 	NAME VARCHAR(60),
+-- 	phone INT,
+-- 	email VARCHAR(30)
+-- )
+
+-- CREATE TABLE ROLE(
+-- 	id INT PRIMARY KEY AUTO_INCREMENT,
+-- 	NAME VARCHAR(60)
+-- )
+-- 
+
+-- CREATE TABLE Course(
+-- 	id INT PRIMARY KEY AUTO_INCREMENT,
+-- 	NAME VARCHAR(60),
+-- 	time_line Date,
+-- 	DESCRIPTION VARCHAR(100),
+-- 	price FLOAT,
+-- 	type_course VARCHAR(30),
+-- 	vote float
+-- )
+
+-- CREATE TABLE OpeningSchedule(
+-- 	id INT PRIMARY KEY AUTO_INCREMENT,
+-- 	start_date DATE,
+-- 	address VARCHAR(60),
+-- 	study_day VARCHAR(20),
+-- 	study_time float
+-- )
+
+-- CREATE TABLE TransactionHistory (
+-- 	id INT PRIMARY KEY AUTO_INCREMENT,
+-- 	registration_date DATE,
+-- 	STATUS VARCHAR(20)
+-- )
+
+-- CREATE TABLE AccountBanking(
+-- 	id INT PRIMARY KEY AUTO_INCREMENT,
+-- 	name_bank VARCHAR(30),
+-- 	account_num int		
+-- )
+
+-- ALTER table USER
+-- ADD RoleId INT,
+-- ADD CONSTRAINT FK_RoleUser
+-- FOREIGN KEY (RoleID) REFERENCES ROLE(id);
+
+-- ALTER TABLE AccountBanking
+-- ADD user_id BIGINT UNIQUE,
+-- ADD FOREIGN KEY (user_id) REFERENCES USER(id);
+
+-- CREATE TABLE course_OpeningSchedule(
+-- 	id INT PRIMARY KEY AUTO_INCREMENT,
+-- 	course_id INT,
+-- 	OpeningSchedule_id INT,
+-- 	FOREIGN KEY (course_id) REFERENCES Course(id),
+-- 	FOREIGN KEY (OpeningSchedule_id) REFERENCES OpeningSchedule(id)
+-- )
+
+-- CREATE TABLE user_course (
+-- 	id INT PRIMARY KEY AUTO_INCREMENT,
+-- 	user_id INT,
+-- 	course_id INT,
+-- 	FOREIGN KEY (user_id) REFERENCES USER(id),
+-- 	FOREIGN KEY (course_id) REFERENCES Course(id)
+-- )
+
+-- ALTER TABLE TransactionHistory
+-- ADD user_course_id INT,
+-- add FOREIGN KEY (user_course_id) REFERENCES user_course(id)
+
+-- INSERT INTO USER(NAME, phone, email)
+-- VALUES ('Nguyen Thanh A', 0987630982, 'nguyenthanhA@gmail.com'),
+-- ('Tran Thi B', 098993982, 'tranthib@gmail.com'),
+-- ('Vu Viet C', 038740982, 'vuvietc@gmail.com'),
+-- ('Vo Van D', 0347611112, 'vvd@gmail.com'),
+-- ('Nguyen Thi Thu E', 032320982, 'e.nguyenthi@gmail.com')
+
+
+-- INSERT INTO AccountBanking(name_bank, account_num, user_id)
+-- VALUES ('Viettin', 032432987630982, 2),
+-- ('Mb', 02123198993982, 5),
+-- ('Techcombank', 0335438740982, 1),
+-- ('BIDV', 09635347611112, 3),
+-- ('Vietcombank', 0932322990982, 4)
+
+-- INSERT INTO Blog (title, DESCRIPTION, created_at)
+-- VALUES ('Learn Html', 'basic knowledge about html and css', '2010-02-02'),
+-- ('microservice', 'micro', '2019-03-10'),
+-- ('quartz spring boot', 'library ', '2020-12-09'),
+-- ('springMVC', 'spring framework', '2020-03-10'),
+-- ('spring boot', 'spring framework', '2021-08-01')
+
+-- INSERT INTO Course(NAME, time_line, DESCRIPTION, price, type_course, vote)
+-- VALUES('html/css basic', '2019-03-10', 'html', 3000000, 'OnLab', 4.3),
+-- ('spring boot', '2022-12-01', 'java framework', 5000000, 'OnLab', 5.6),
+-- ('AWS', '2022-08-02', 'aws', 4500000, 'Online', 7.3),
+-- ('Docker', '2020-04-10', 'docker', 6750000, 'Online', 4.2),
+-- ('nodejs', '2022-03-10', 'nodejs', 2300000, 'OnLab', 5.9)
+
+-- INSERT INTO OpeningSchedule(start_date, address, study_day, study_time)
+-- VALUES('2019-03-10', '48 Tố Hữu', '3,5,7', 135),
+-- ('2020-09-13', 'NDC', '2,4,6', 275),
+-- ('2020-07-19', 'DVH', '2,4,6', 500),
+-- ('2022-04-21', 'DVH', '3,5,7', 355),
+-- ('2021-12-12', '48 Tố Hữu', '2,4,6', 250)
+
+-- SELECT u.id, u.phone, u.email, r.NAME, b.name_bank, b.account_num from USER u 
+-- JOIN ROLE r
+-- ON u.RoleId = r.id
+-- JOIN AccountBanking b
+-- ON u.id = b.user_id
+
+-- SELECT * FROM USER u
+-- JOIN ROLE r
+-- ON u.RoleId = r.id
+-- WHERE r.NAME = 'Online'
+
+-- SELECT o.id, o.start_date, o.address, o.study_day, o.study_time, c.NAME, c.time_line, c.DESCRIPTION, c.price, c.type_course, c.vote 
+-- FROM OpeningSchedule o
+-- JOIN course_OpeningSchedule co
+-- ON o.id = co.OpeningSchedule_id
+-- JOIN Course c
+-- ON c.id = co.course_id
+
+-- SELECT t.id transaction_id, u.NAME, c.NAME, t.registration_date, t.`STATUS`
+-- FROM TransactionHistory t
+-- JOIN user_course uc
+-- ON t.user_course_id = uc.id
+-- JOIN USER u
+-- ON uc.user_id = u.id
+-- JOIN Course c
+-- ON uc.course_id = c.id
+
+
+
