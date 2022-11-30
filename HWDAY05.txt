@@ -1,0 +1,62 @@
+﻿
+	
+182.
+
+select a1.email Email 
+from Person a1
+group by email
+having count(id) > 1
+
+
+183.
+# cach 1
+# select c.name Customers from Customers c
+# where c.id not in (select c.id 
+# from Customers c 
+# right Join Orders o 
+# On c.id = o.customerId )
+
+$cach 2
+select c.name Customers
+from Customers c 
+left outer join Orders o 
+On c.id = o.customerId
+where o.customerId is null
+
+196.
+DELETE FROM Person 
+WHERE id IN (
+SELECT * FROM (
+SELECT a2.id FROM Person a1
+left JOIN Person a2
+ON a1.email = a2.email
+AND a2.id > a1.id 
+where a2.id IS NOT NULL
+))
+
+
+197.
+SELECT a1.id FROM Weather a1
+JOIN Weather a2 
+ON a1.recordDate = ADDDATE(a2.recordDate, 1)
+WHERE a1.temperature > a2.temperature
+
+
+
+
+511.
+SELECT player_id, MIN(event_date) first_login FROM Activity
+GROUP BY player_id
+
+512.
+SELECT player_id, device_id FROM Activity
+WHERE event_date IN (SELECT Min(event_date) FROM Activity
+			GROUP BY player_id)
+
+584.
+select name from Customer
+where referee_id != 2
+Or referee_id is null
+
+
+
